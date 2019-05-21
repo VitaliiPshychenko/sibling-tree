@@ -1,17 +1,9 @@
-const tree = document.getElementsByTagName('ul')[0];
-const treeList = tree.getElementsByTagName('li');
-const toggler = document.getElementsByTagName('span');
+const tree = document.querySelector('.tree');
 
-for (let i = 0; i < treeList.length; i++) {
-  const li = treeList[i]; 
-  const span = document.createElement('span');
-  
-  li.insertBefore(span, li.firstChild);
-  span.appendChild(span.nextSibling);
-}
+tree.addEventListener('click', event => {
+  const target = event.target;
 
-for (let i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener('click', function() {
-    this.nextElementSibling.classList.toggle('nested');
-  });
-}
+   if (target.tagName === 'SPAN') {
+    target.nextElementSibling.classList.toggle('hidden');
+  }
+})
